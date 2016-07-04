@@ -193,7 +193,7 @@ hpsRoot.CustomActionUtility = {
 		
 			$.getScript(_spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/sp.js").done(function () {
 	            
-				$("#DeltaPlaceHolderMain").empty().load("/sites/showcase/siteassets/customactions/form.html", function(data){
+				$("#DeltaPlaceHolderMain").empty().load("//raw.githubusercontent.com/supergometan/CA_bookmarklet/master/form.html", function(data){
 			
 					$("button#install-site-user-custom-action").click(function () {
 		                installUserCustomAction("site");
