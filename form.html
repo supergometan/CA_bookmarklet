@@ -1,0 +1,92 @@
+﻿<!--h1>Site Custom Actions</h1>
+
+<ul id="site-user-custom-actions"></ul>
+
+<h1>Web Custom Actions</h1>
+
+<ul id="web-user-custom-actions"></ul>
+
+<h2 class="ms-accentText">Install User Custom Action</h2>
+
+<br />
+
+<label>ID</label><input id="scriptlink-id" type="text" />
+<label>URL</label><input id="scriptlink-url" type="text" />
+<label>Sequence</label><input id="scriptlink-seq" type="text" />
+
+<div class="clear-left left">
+    <button id="install-site-user-custom-action" type="button">Install Site Collection</button>
+    <button id="uninstall-site-user-custom-action" type="button">Uninstall Site Collection</button>
+    
+    <br />
+
+    <button id="install-web-user-custom-action" type="button">Install Current Web</button>
+    <button id="uninstall-web-user-custom-action" type="button">Uninstall Current Web</button>
+</div-->
+
+<style>
+
+	#hpsCustomActionTable {
+		width:100%;	
+	}
+
+	#hpsCustomActionTable thead th {
+		border-bottom:1px solid grey;
+		text-align:left;
+	}
+
+	#hpsCustomActionTable tbody tr:nth-child(even) td {
+		background-color:#eeeeee;
+	}
+	
+	#hpsCustomActionTable button.hpsDeleteCustomActionButton {
+		width:32px;
+		min-width:0px;
+	}
+
+
+</style>
+
+<table id="hpsCustomActionTable">
+
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>URL</th>
+			<th>Sequence</th>
+			<th>Scope</th>
+			<th></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+	
+	</tbody>
+
+</table>
+<button type="button" id="hpsNewCustomActionButton">New Custom Action</button>
+
+<div id="hpsCustomActionModalContent" style="display:none;">
+	<div class="hpsCustomActionModalContent">
+		<label>Title</label>
+		<input type="text" name="title">
+		<br>
+		
+		<label>URL</label>
+		<input type="text" name="url">
+		<br>
+	
+		<label>Sequence</label>
+		<input type="text" name="sequence">
+		<br>
+	
+		<label>Web</label>
+		<input type="radio" name="scope" value="web" checked="checked">
+		<label>Site</label>
+		<input type="radio" name="scope" value="site">
+		<br>
+		
+		<button id="hpsCustomActionModalSaveButton" type="button">Save</button>
+		<button id="hpsCustomActionModalCancelButton" type="button">Cancel</button>
+	</div>
+</div>
