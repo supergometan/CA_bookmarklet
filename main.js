@@ -56,7 +56,7 @@ hpsRoot.CustomActionUtility = {
 
 	},
 
-	installCustomAction(siteOrWeb, title, url, seq, id) {
+	installCustomAction(siteOrWeb, title, url, seq, absolute, id) {
 
 		var deferred = $.Deferred();
 
@@ -78,7 +78,7 @@ hpsRoot.CustomActionUtility = {
 				"var link1 = document.createElement('link');",
 				"link1.type = 'text/css';",
 				"link1.rel = 'stylesheet';",
-				"link1.href = '" + _spPageContextInfo.webServerRelativeUrl + "/" + url + "';",
+				"link1.href = '" + (absolute ? url : _spPageContextInfo.webServerRelativeUrl + "/" + url) + "';",
 				(id ? "link1.id = '" + id + "';" : ""),
 				"head1.appendChild(link1);",
 				"})();"
@@ -91,7 +91,7 @@ hpsRoot.CustomActionUtility = {
 				"var head1 = document.getElementsByTagName('head')[0];",
 				"var script1 = document.createElement('script');",
 				"script1.type = 'text/javascript';",
-				"script1.src = '/" + _spPageContextInfo.webServerRelativeUrl + "/" + url + "';",
+				"script1.src = '/" + (absolute ? url : _spPageContextInfo.webServerRelativeUrl + "/" + url) + "';",
 				"script1.id = '" + id + "';",
 				"head1.appendChild(script1);",
 				"})();"
@@ -99,7 +99,7 @@ hpsRoot.CustomActionUtility = {
 			action.set_scriptBlock(block);
 			action.set_description(url);
 		} else {
-			action.set_scriptSrc("~sitecollection/" + url);
+			action.set_scriptSrc((absolute ? url : "~sitecollection/" + url));
 			action.set_description(url);
 		}
 		action.set_sequence(seq);
@@ -233,12 +233,14 @@ hpsRoot.CustomActionUtility = {
 									if ($(this).prop("checked"))
 										scope = $(this).val();
 								});
+								
+								var absolute = $modal.find("input[name=absolute]").prop("checked");
 
 								var title = $modal.find("input[name=title]").val();
 								var url = $modal.find("input[name=url]").val();
 								var sequence = parseInt($modal.find("input[name=sequence]").val());
 
-								hpsRoot.CustomActionUtility.installCustomAction(scope, title, url, sequence).done(function () {
+								hpsRoot.CustomActionUtility.installCustomAction(scope, title, url, sequence, absolute).done(function () {
 
 									modal.close(modal);
 
