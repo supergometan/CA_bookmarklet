@@ -237,7 +237,7 @@ hpsRoot.CustomActionUtility = {
 								var absolute = $modal.find("input[name=absolute]").prop("checked");
 
 								var title = $modal.find("input[name=title]").val();
-								var url = $modal.find("input[name=url]").val();
+								var url = $modal.find("input[name=url]").val().trim();
 								var sequence = parseInt($modal.find("input[name=sequence]").val());
 
 								hpsRoot.CustomActionUtility.installCustomAction(scope, title, url, sequence, absolute).done(function () {
