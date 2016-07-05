@@ -84,7 +84,7 @@ hpsRoot.CustomActionUtility = {
 				"})();"
 			].join("");
 			action.set_scriptBlock(block);
-			action.set_description(url);
+			action.set_description((absolute ? url : _spPageContextInfo.webServerRelativeUrl + "/" + url));
 		} else if (id || absolute) {
 			block = [
 				"(function(){",
@@ -97,10 +97,10 @@ hpsRoot.CustomActionUtility = {
 				"})();"
 			].join("");
 			action.set_scriptBlock(block);
-			action.set_description(url);
+			action.set_description((absolute ? url : _spPageContextInfo.webServerRelativeUrl + "/" + url));
 		} else {
 			action.set_scriptSrc((absolute ? url : "~sitecollection/" + url));
-			action.set_description(url);
+			action.set_description((absolute ? url : "~sitecollection/" + url));
 		}
 		action.set_sequence(seq);
 		action.update();
