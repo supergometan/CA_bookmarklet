@@ -99,8 +99,8 @@ hpsRoot.CustomActionUtility = {
 			action.set_scriptBlock(block);
 			action.set_description((absolute ? url : _spPageContextInfo.webServerRelativeUrl + "/" + url));
 		} else {
-			action.set_scriptSrc((absolute ? url : "~sitecollection/" + url));
-			action.set_description((absolute ? url : "~sitecollection/" + url));
+			action.set_scriptSrc((absolute ? url : "~site/" + url));
+			action.set_description((absolute ? url : "~site/" + url));
 		}
 		action.set_sequence(seq);
 		action.update();
@@ -131,7 +131,7 @@ hpsRoot.CustomActionUtility = {
 						action.deleteObject();
 					}
 				} else {
-					if (action.get_scriptSrc() == "~sitecollection/" + url || action.get_title() == url) {
+					if (action.get_scriptSrc() == "~site/" + url || action.get_title() == url) {
 						action.deleteObject();
 					}
 				}
