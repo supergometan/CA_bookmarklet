@@ -193,12 +193,16 @@ hpsRoot.CustomActionUtility = {
 
 			$.getScript(_spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/sp.js").done(function () {
 
+				$("#hpsCustomActionManager").remove();
+			
 				var $element = $('<div id="hpsCustomActionManager"></div>').appendTo("body");
 				$element.css({
 					"position":"absolute",
-					"bottom":"0px",
-					"right":"0px",
-					"width":"600px"
+					"bottom":"5px",
+					"right":"5px",
+					"width":"600px",
+					"background-color":"#eee",
+					"border":"1px solid #ccc"
 				});
 				$element.load("//raw.githubusercontent.com/supergometan/CA_bookmarklet/master/form.html", function (data) {
 
