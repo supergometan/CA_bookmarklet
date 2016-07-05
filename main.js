@@ -11,8 +11,6 @@ hpsRoot.CustomActionUtility = {
 			hpsRoot.CustomActionUtility.getSiteCustomActions().done(function (sa) {
 
 				var array = wa.concat(sa).sort();
-				
-				console.log(array);
 
 				deferred.resolve(array);
 
@@ -87,7 +85,7 @@ hpsRoot.CustomActionUtility = {
 			].join("");
 			action.set_scriptBlock(block);
 			action.set_description(url);
-		} else if (id) {
+		} else if (id || absolute) {
 			block = [
 				"(function(){",
 				"var head1 = document.getElementsByTagName('head')[0];",
