@@ -11,6 +11,8 @@ hpsRoot.CustomActionUtility = {
 			hpsRoot.CustomActionUtility.getSiteCustomActions().done(function (sa) {
 
 				var array = wa.concat(sa).sort();
+				
+				console.log(array);
 
 				deferred.resolve(array);
 
