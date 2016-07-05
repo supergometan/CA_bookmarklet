@@ -149,7 +149,13 @@ hpsRoot.CustomActionUtility = {
 	
 	init : function(){
 	
-		SP.SOD.executeFunc("//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.min.js", "jQuery", init);
+		SP.SOD.executeFunc("//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.min.js", "jQuery", init1);
+		
+		function init1() {
+			
+			$.getScript("/_layouts/sp.js").done(init);
+			
+		}
 		
 		function init() {
 		
@@ -211,7 +217,9 @@ hpsRoot.CustomActionUtility = {
 		            loadCustomActionsIntoTable();
 		            	            
 		            $("#hpsNewCustomActionButton").click(function(){
-		            	            
+						
+						
+		            	
 		            	var modal = SP.UI.ModalDialog.showModalDialog({
 		            		title : "Create Custom Action",
 		            		html : $($("#hpsCustomActionModalContent").html())[0]
