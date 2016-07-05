@@ -149,15 +149,7 @@ hpsRoot.CustomActionUtility = {
 	
 	init : function(){
 	
-		SP.SOD.executeFunc("//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.min.js", "jQuery", init1);
-		
-		function init1() {
-			
-			$.getScript("/_layouts/sp.js").done(function(){
-				$.getScript("/_layouts/sp.ui.dialog.js").done(init);
-			});
-			
-		}
+		SP.SOD.executeFunc("//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.min.js", "jQuery", init);
 		
 		function init() {
 		
