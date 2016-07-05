@@ -1,4 +1,4 @@
-﻿var hpsRoot = hpsRoot || {};
+var hpsRoot = hpsRoot || {};
 
 hpsRoot.CustomActionUtility = {
 
@@ -193,7 +193,14 @@ hpsRoot.CustomActionUtility = {
 
 			$.getScript(_spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/sp.js").done(function () {
 
-				$("#DeltaPlaceHolderMain").empty().load("//raw.githubusercontent.com/supergometan/CA_bookmarklet/master/form.html", function (data) {
+				var $element = $('<div id="hpsCustomActionManager"></div>').appendTo("body");
+				$element.css({
+					"position":"absolute",
+					"bottom":"0px",
+					"right":"0px",
+					"width":"600px"
+				});
+				$element.load("//raw.githubusercontent.com/supergometan/CA_bookmarklet/master/form.html", function (data) {
 
 					$("button#install-site-user-custom-action").click(function () {
 						installUserCustomAction("site");
