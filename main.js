@@ -153,7 +153,9 @@ hpsRoot.CustomActionUtility = {
 		
 		function init1() {
 			
-			$.getScript("/_layouts/sp.js").done(init);
+			$.getScript("/_layouts/sp.js").done(function(){
+				$.getScript("/_layouts/sp.ui.dialog.js").done(init);
+			});
 			
 		}
 		
